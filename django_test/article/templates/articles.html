@@ -1,0 +1,20 @@
+<h2> Language is : {{ language}} </h2>
+<h2> Session language is : {{session_language }}</h2>
+
+<a href="/articles/all">Articles</a>
+<a href="/articles/create">Create Article</a>
+{% if articles.count > 0 %}
+
+
+{% for article in articles %}
+           <div>
+                <h2><a href="/articles/get/{{ article.id }}/">{{ article.title }}</a></h2>
+                <p>{{ article.body }} </p>
+                <p> {{article.likes}} people liked this article </p>
+           </div>
+           {% endfor %}
+
+{% else %}
+<p> None to show </p>
+
+{% endif %}
